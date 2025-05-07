@@ -11,6 +11,6 @@ provider "aws" {
 }
 
 resource "aws_instance" "demo" {
-  ami           = "ami-12345678"
+  ami           = "ami-${replace(uuid(), "-", "")}"
   instance_type = "t2.micro"
 }
