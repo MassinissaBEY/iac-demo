@@ -6,16 +6,11 @@ provider "aws" {
   skip_metadata_api_check     = true
   skip_credentials_validation = true
   endpoints {
-    ec2 = "http://ip10-0-2-6-cvh9tgab9qb14bivkplg-4566.direct.lab-boris.fr"
+    ec2 = "http://ip10-0-7-4-d0dgqbg05akh4glkf8t0-4566.direct.lab-boris.fr"
   }
 }
 
-variable "ami_id" {
-  type    = string
-  default = "ami-12345678"
-}
-
 resource "aws_instance" "demo" {
-  ami           = var.ami_id
+  ami           = "ami-12345678"
   instance_type = "t2.micro"
 }
