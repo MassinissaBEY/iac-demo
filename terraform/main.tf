@@ -6,20 +6,16 @@ provider "aws" {
   skip_metadata_api_check     = true
   skip_credentials_validation = true
   endpoints {
-    ec2 = "http://ip10-0-7-4-d0dgqbg05akh4glkf8t0-4566.direct.lab-boris.fr"
+    ec2 = "http://ip10-0-2-6-cvh9tgab9qb14bivkplg-4566.direct.lab-boris.fr"
   }
 }
 
-# Générer une valeur aléatoire pour simuler un nouvel AMI à chaque commit
-resource "random_id" "ami_suffix" {
-  byte_length = 2
+variable "ami_id" {
+  type    = string
+  default = "ami-12345678"
 }
 
 resource "aws_instance" "demo" {
-  ami           = "ami-${random_id.ami_suffix.hex}"
+  ami           = var.ami_id
   instance_type = "t2.micro"
-
-  tags = {
-    Name = "EC2-${random_id.ami_suffix.hex}"
-  }
 }
