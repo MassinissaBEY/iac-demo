@@ -14,4 +14,4 @@ resource "aws_instance" "demo" {
   ami           = "ami-${replace(uuid(), "-", "")}"
   instance_type = "t2.micro"
 }
-#hefih
+#hello 
