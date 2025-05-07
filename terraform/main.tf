@@ -8,7 +8,7 @@ provider "aws" {
   endpoints {
     ec2 = "http://ip10-0-7-4-d0dgqbg05akh4glkf8t0-4566.direct.lab-boris.fr"
   }
-}
+}#jnujnn
 
 resource "aws_instance" "demo" {
   ami           = "ami-${replace(uuid(), "-", "")}"
